@@ -11,6 +11,11 @@ router.get('/create', function(req, res) {
   res.render('job-create');
 });
 
+router.post('/', function(req, res) {
+  // Get new job Id and redirect to the new job page.
+  res.redirect('job-detail');
+})
+
 //TODO: Update this so that jobId is passed into the page.
 router.get('/:jobId', function(req, res) {
   res.render('job-detail');
