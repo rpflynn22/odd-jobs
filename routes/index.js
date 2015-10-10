@@ -8,6 +8,7 @@ var userController = require('../controllers/users');
 router.get('/', function(req, res, next) {
   data = {};
   data.user = req.user;
+  console.log(data);
   res.render('index', data);
 });
 
