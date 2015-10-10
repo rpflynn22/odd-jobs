@@ -2,11 +2,15 @@ var User = require('../models/user.js');
 var passport = require('passport');
 
 module.exports = {
+  put: function(req, res) {
+    // TODO: Update User Info in Database
+  }
+
   post: function(req, res) {
     if (req.body.password && req.body.password_copy) {
       if (req.body.password == req.body.password_copy) {
         /* Needs to be changed based on user model */
-        
+
         var newUser = new User({
           username: req.body.username,
           first_name: req.body.first_name,
@@ -30,7 +34,7 @@ module.exports = {
             res.redirect('/');
           });
         });
-        
+
       } else {
         console.log("Passwords did not match");
         res.render('register');

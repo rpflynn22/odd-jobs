@@ -23,6 +23,10 @@ nav.navbar.navbar-default.navbar-static-top
           span.glyphicon.glyphicon-globe
           |  Register
       li(ng-show='loggedIn')
+        a(href='/users/edit')
+          span.glyphicon.glyphicon-edit
+          |  Account Settings
+      li(ng-show='loggedIn')
         a(href='/logout')
           span.glyphicon.glyphicon-user
           |  Logout

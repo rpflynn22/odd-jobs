@@ -12,6 +12,11 @@ router.get('/new', function(req, res) {
   res.render('register');
 });
 
+router.get('/edit', function(req, res) {
+  res.render('user-edit');
+});
+
+router.put('/', userController.put);
 router.post('/', userController.post);
 
 module.exports = router;
