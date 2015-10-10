@@ -13,29 +13,6 @@ html(ng-app='oddJobs' ng-controller='MainCtrl')
     script(src='/angular/js/app.js')
     script(src='/angular/js/controllers/oddJobsControllers.js')
   body
-    nav.navbar.navbar-default.navbar-static-top
-      div(class='container')
-        ul.nav.navbar-nav
-          li
-            a(href='/')
-              span.glyphicon.glyphicon-home
-              |  Home
-          li
-            a(href='/jobs')
-              span.glyphicon.glyphicon-wrench
-              |  Jobs
-        ul.nav.navbar-nav.navbar-right
-          li(ng-show='!loggedIn')
-            a(href='/login')
-              span.glyphicon.glyphicon-user
-              |  Login
-          li(ng-show='!loggedIn')
-            a(href='/register')
-              span.glyphicon.glyphicon-globe
-              |  Register
-          li(ng-show='loggedIn')
-            a(href='/logout')
-              span.glyphicon.glyphicon-user
-              |  Logout
+    include ../views/navbar.jade
           
     block content
