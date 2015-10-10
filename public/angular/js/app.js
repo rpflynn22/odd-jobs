@@ -15,6 +15,14 @@
             templateUrl: '/views/index.jade',
             controller: 'HomeCtrl'
           }).
+          when('/jobs', {
+            templateUrl: '/views/jobs.jade'
+            controller: 'JobsCtrl'
+          }).
+          when('/jobs/create', {
+            templateUrl: '/views/job-create.jade'
+            controller: 'JobCreateCtrl'
+          }).
           when('/register', {
             templateUrl: '/views/register.jade',
             controller: 'HomeCtrl'
