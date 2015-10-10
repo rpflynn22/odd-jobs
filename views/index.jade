@@ -3,3 +3,7 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  div(ng-controller="HomeCtrl")
+    p The following badasses have provided this sweet ass website for y'all.
+    ul
+      li(ng-repeat="author in authors") {{author}}
