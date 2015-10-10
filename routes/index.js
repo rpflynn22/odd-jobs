@@ -18,7 +18,7 @@ router.get('/login', function(req, res) {
   if (req.query.err) {
     data.error = req.query.err;
   }
-  res.json(data);
+  res.render('login', data);
 });
 
 router.post('/login', passport.authenticate('local'), function(req, res) {

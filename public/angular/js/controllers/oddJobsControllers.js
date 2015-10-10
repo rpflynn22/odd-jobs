@@ -7,27 +7,14 @@
 
    oddJobsControllers.controller('MainCtrl', ['$scope', '$http',
       function($scope, $http) {
-        $scope.test = false;
-
-        // $http.get('/checklogin')
-        //   .success(function(data) {
-        //     $scope.loggedIn = data;
-        //   })
-        //   .error(function(data) {
-        //     console.log('error: ' + data);
-        //   });
-  }]);
-
-   oddJobsControllers.controller('LoginCtrl', ['$scope', '$http',
-      function($scope, $http) {
-        $http.get('/login')
+        $http.get('/checklogin')
           .success(function(data) {
-            $scope.loggedIn = data.user;
+            $scope.loggedIn = data;
           })
           .error(function(data) {
             console.log('error: ' + data);
           });
-   }]);
+  }]);
 
    oddJobsControllers.controller('HomeCtrl', ['$scope', '$http',
       function($scope, $http) {
