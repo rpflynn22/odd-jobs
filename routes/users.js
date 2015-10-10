@@ -9,7 +9,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/new', function(req, res) {
-  res.render('register');
+  if (req.query.err) {
+    data = {error: req.query.err};
+  } else {
+    data = {};
+  }
+  res.render('register', data);
 });
 
 router.get('/edit', function(req, res) {

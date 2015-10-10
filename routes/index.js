@@ -14,8 +14,18 @@ router.get('/login', function(req, res) {
   res.render('login');
 });
 
-router.post('/login', passport.authenticate('local'), function(req, res) {
-  res.redirect('/');
+router.post('/login', function(req, res, next) {
+    passport.authenticate('local', function(err, user, info) {
+        if (err) return console.error(err);
+        if (!user) {
+            // login failed
+            res.render('login', {error: 'That\'s not right!'});
+            return console.error('invalid login');
+        }
+        req.logIn(user, function(err) {
+            return res.redirect('/');
+        });
+    })(req, res, next);
 });
 
 router.get('/checklogin', function(req, res) {

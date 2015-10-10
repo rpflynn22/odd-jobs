@@ -10,5 +10,13 @@ module.exports = {
         var mongoPass = configs.storage.mongolab.password;
         return 'mongodb://' + mongoUname + ':' + mongoPass +
                '@ds035664.mongolab.com:35664/odd-jobs'
+    },
+
+    validateJobTags: function(tags) {
+        tags.length >= 1;
+    },
+
+    validateLocation: function(zipCode) {
+        zipCode.toString().length == 5;
     }
 };

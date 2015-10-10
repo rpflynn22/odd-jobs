@@ -28,9 +28,11 @@ module.exports = {
         });
 
         User.register(newUser, req.body.password, function(err, acct) {
-          if (err) return console.error(err);
+          if (err) {
+            var errMsg = encodeURIComponent('How can you expect to get a job if you can\'t event fill out the form?');
+            res.redirect('/users/new/?err=' + errMsg);
+          }
           passport.authenticate('local')(req, res, function () {
-            console.log('You are ' + req.user);
             res.redirect('/');
           });
         });
