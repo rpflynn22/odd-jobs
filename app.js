@@ -15,7 +15,7 @@ var general = require('./general');
 var app = express();
 
 var User = require('./models/user');
-passport.use(new LocalStrategy(User.authenticate()));
+passport.use(new localStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
