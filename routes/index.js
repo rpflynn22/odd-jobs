@@ -18,10 +18,8 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
 });
 
 router.get('/register', function(req, res) {
-  res.render('register');
+  res.redirect('/users/new');
 });
-
-router.post('/register', userController.post);
 
 /* Logs the user out, returns to the signin page */
 router.get('/logout', function(req, res){
