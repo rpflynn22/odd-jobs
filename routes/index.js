@@ -6,31 +6,15 @@ var userController = require('../controllers/users');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(req.user);
-  res.render('index', { title: 'Odd Jobs' });
+  res.render('index');
 });
 
 router.get('/login', function(req, res) {
-  data = {};
-  if (req.query.err) {
-    data.error = req.query.err;
-  }
-  res.render('login', data);
+  res.render('login');
 });
 
-router.post('/login', function(req, res, next) {
-  passport.authenticate('local', function(err, user, info) {
-    if (err) return console.error(err);
-    if (!user) {
-      // login failed
-      var errMsg = encodeURIComponent("That's not right!");
-      res.redirect('/login?err=' + errMsg);
-      return console.error('invalid login');
-    }
-    req.logIn(user, function(err) {
-      return res.redirect('/');
-    });
-  })(req, res, next);
+router.post('/login', passport.authenticate('local'), function(req, res) {
+  res.redirect('/');
 });
 
 router.get('/checklogin', function(req, res) {
