@@ -1,10 +1,10 @@
 {
-    storage:
+    "storage":
     {
-        mongolab:
+        "mongolab":
         {
-            username: "odd-jobs-dev",
-            password: "changeme"
+            "username": "odd-jobs-dev",
+            "password": "changeme"
         }
     }
 }

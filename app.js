@@ -6,11 +6,16 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var localStrategy = require('passport-local');
+var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var general = require('./general.js');
 
 var app = express();
+
+var mongooseURI = general.generateMongoURI();
+mongoose.connect(mongooseURI);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
