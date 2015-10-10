@@ -18,8 +18,8 @@
             .error(function(data) {
               console.log('error: ' + data);
             });
-        }
-      }]);
+        };
+  }]);
 
    oddJobsControllers.controller('HomeCtrl', ['$scope', '$http',
       function($scope, $http) {

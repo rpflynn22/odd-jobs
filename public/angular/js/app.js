@@ -16,11 +16,11 @@
             controller: 'HomeCtrl'
           }).
           when('/jobs', {
-            templateUrl: '/views/jobs.jade'
+            templateUrl: '/views/jobs.jade',
             controller: 'JobsCtrl'
           }).
           when('/jobs/create', {
-            templateUrl: '/views/job-create.jade'
+            templateUrl: '/views/job-create.jade',
             controller: 'JobCreateCtrl'
           }).
           when('/register', {
