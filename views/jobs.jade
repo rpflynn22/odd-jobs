@@ -1,5 +1,42 @@
 extends layout
 
 block content
-  h1 Available Jobs
   div(ng-controller="JobsCtrl")
+  .container
+    h1 Available Jobs
+    br
+    table.table.table-striped.table-condensed
+      thead
+        tr
+          th
+          th Title
+          th Employer
+          th Location
+          th Salary
+          th Date
+          th Status
+
+      tbody
+        tr(ng-repeat="job in jobs")
+          td
+            .text-center
+              a(href="/jobs/" + job._id)
+                button(class="btn btn-info") View
+          td
+            .text-center
+              = job.title
+          td
+            .text-center
+              = job.employer.username
+          td
+            .text-center
+              = job.location
+          td
+            .text-center
+              = job.salary
+          td
+            .text-center
+              = job.date.toLocaleString().split(' ').slice(1, 5).join(' ')
+          td
+            .text-center
+              = job.status
