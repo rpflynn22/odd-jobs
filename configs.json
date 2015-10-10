@@ -1,0 +1,11 @@
+{
+    storage:
+    {
+        mongolab:
+        {
+            username: "odd-jobs-dev",
+            password: "changeme"
+        }
+    }
+}
+
