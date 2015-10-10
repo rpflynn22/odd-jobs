@@ -7,16 +7,7 @@
 
    oddJobsControllers.controller('MainCtrl', ['$scope', '$http',
       function($scope, $http) {
-        console.log("------> Checking login...");
-        $http.get('/checklogin')
-          .success(function(data) {
-            console.log("SUCCESS....");
-            console.log("Data " + data);
-            $scope.loggedIn = data ? true : false;
-          })
-          .error(function(data) {
-            console.log('error: ' + data);
-          });
+        $scope.test = false;
   }]);
 
    oddJobsControllers.controller('HomeCtrl', ['$scope', '$http',
