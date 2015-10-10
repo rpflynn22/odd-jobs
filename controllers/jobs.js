@@ -26,3 +26,7 @@ module.exports = {
     }
   });
 }
+
+function newJobIsValid(req) {
+  return (req.body.title && req.body.description && req.body.salary && req.body.location);
+}
