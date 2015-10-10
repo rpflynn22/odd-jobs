@@ -8,7 +8,7 @@
       'oddJobsControllers',
     ]);
 
-    mainApp.config(['$routeProvider',
+    oddJobs.config(['$routeProvider',
       function($routeProvider) {
         $routeProvider.
           when('/', {
