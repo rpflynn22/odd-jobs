@@ -19,4 +19,4 @@ var userSchema = new Schema({
     avgRating: Number
 });
 
-module.exports = mongoose.model('Users', userSchema);
+module.exports = mongoose.model('nothing', userSchema);
