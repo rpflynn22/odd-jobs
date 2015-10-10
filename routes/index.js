@@ -6,6 +6,7 @@ var userController = require('../controllers/users');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log(req.user);
   res.render('index', { title: 'Odd Jobs' });
 });
 
@@ -15,6 +16,10 @@ router.get('/login', function(req, res) {
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
   res.redirect('/');
+});
+
+router.get('/checklogin', function(req, res) {
+  return req.user;
 });
 
 router.get('/register', function(req, res) {

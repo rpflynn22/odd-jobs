@@ -9,7 +9,7 @@ nav.navbar.navbar-default.navbar-static-top
         a(href='/jobs')
           span.glyphicon.glyphicon-wrench
           |  Jobs
-      li
+      li(ng-show='loggedIn')
         a(href='/jobs/create')
           span.glyphicon.glyphicon-bullhorn
           |  Create a Job
