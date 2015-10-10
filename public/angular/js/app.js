@@ -15,11 +15,11 @@
             templateUrl: '/views/index.jade',
             controller: 'HomeCtrl'
           }).
-          when('/jobs', {
+          when('/jobs/view', {
             templateUrl: '/views/jobs.jade',
             controller: 'JobsCtrl'
           }).
-          when('/jobs/create', {
+          when('/jobs/', {
             templateUrl: '/views/job-create.jade',
             controller: 'JobCreateCtrl'
           }).
