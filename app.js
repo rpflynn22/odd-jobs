@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
+var session = require('cookie-session');
 
 var routes = require('./routes/index');
 var usersRoute = require('./routes/users');
@@ -14,6 +15,11 @@ var jobsRoute = require('./routes/jobs');
 var general = require('./general');
 
 var app = express();
+
+app.use(session({keys: ['secretkey1', 'secretkey2', '...']}));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 var User = require('./models/user');
 passport.use(new localStrategy(User.authenticate()));

@@ -23,11 +23,8 @@ router.get('/register', function(req, res) {
 
 /* Logs the user out, returns to the signin page */
 router.get('/logout', function(req, res){
-  // var name = req.user.username;
-  // console.log("LOGGING OUT " + req.user.username)
   req.logout();
   res.redirect('/');
-  // req.session.notice = "You have successfully been logged out " + name + "!";
 });
 
 module.exports = router;
