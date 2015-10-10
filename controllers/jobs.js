@@ -20,7 +20,7 @@ module.exports = {
         if (err) throw err;
         console.log("Created Job successfully!");
         res.redirect('view');
-        });
+      });
     } else {
       console.log("Necessary job fields did not exist!");
       res.render('job-create');

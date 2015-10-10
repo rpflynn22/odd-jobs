@@ -11,21 +11,26 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/login', function(req, res) {
-  res.render('login');
+  data = {};
+  if (req.query.err) {
+    data.error = req.query.err;
+  }
+  res.render('login', data);
 });
 
 router.post('/login', function(req, res, next) {
-    passport.authenticate('local', function(err, user, info) {
-        if (err) return console.error(err);
-        if (!user) {
-            // login failed
-            res.render('login', {error: 'That\'s not right!'});
-            return console.error('invalid login');
-        }
-        req.logIn(user, function(err) {
-            return res.redirect('/');
-        });
-    })(req, res, next);
+  passport.authenticate('local', function(err, user, info) {
+    if (err) return console.error(err);
+    if (!user) {
+      // login failed
+      var errMsg = encodeURIComponent("That's not right!");
+      res.redirect('/login?err=' + errMsg);
+      return console.error('invalid login');
+    }
+    req.logIn(user, function(err) {
+      return res.redirect('/');
+    });
+  })(req, res, next);
 });
 
 router.get('/checklogin', function(req, res) {
