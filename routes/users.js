@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var passport = require('passport');
-var localStrategy = require('passport-local');
+var User = require('../models/user');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -14,11 +13,6 @@ router.get('/login', function(req, res) {
   res.render('login');
 });
 
-router.post('/login', passport.authenticate('local-signin', {
-  successRedirect: '/',
-  failureRedirect: '/login'
-  })
-);
 
 router.get('/register', function(req, res) {
   res.render('register');

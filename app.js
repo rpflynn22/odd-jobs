@@ -5,14 +5,20 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
-var localStrategy = require('passport-local');
+var localStrategy = require('passport-local').Strategy;
 var mongoose = require('mongoose');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var general = require('./general.js');
+var usersRoute = require('./routes/users');
+var jobsRoute = require('./routes/jobs');
+var general = require('./general');
 
 var app = express();
+
+var User = require('./models/user');
+passport.use(new localStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 var mongooseURI = general.generateMongoURI();
 mongoose.connect(mongooseURI);
@@ -32,7 +38,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', routes);
-app.use('/users', users);
+app.use('/users', usersRoute);
+app.use('/jobs', jobsRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

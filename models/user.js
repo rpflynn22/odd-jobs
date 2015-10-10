@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
+var passportLocalMongoose = require('passport-local-mongoose');
 
 var userSchema = new Schema({
     username: String,
@@ -19,4 +20,6 @@ var userSchema = new Schema({
     avgRating: Number
 });
 
-module.exports = mongoose.model('Users', userSchema);
+userSchema.plugin(passportLocalMongoose);
+
+module.exports = mongoose.model('user', userSchema);
