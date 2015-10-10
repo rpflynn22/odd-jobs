@@ -15,6 +15,14 @@
             templateUrl: '/views/index.jade',
             controller: 'HomeCtrl'
           }).
+          when('/register', {
+            templateUrl: '/views/register.jade',
+            controller: 'HomeCtrl'
+          }).
+          when('/login', {
+            templateUrl: '/views/login.jade',
+            controller: 'HomeCtrl'
+          }).
           otherwise({
             redirectTo: '/'
           });

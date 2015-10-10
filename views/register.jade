@@ -1,12 +1,6 @@
-doctype html
-html
-  head
-    title= title
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    link(href='/css/bootstrap.min.css', rel='stylesheet', media='screen')
-    script(src='http://code.jquery.com/jquery.js')
-    script(src='js/bootstrap.min.js')
-  body
+extends layout
+
+block content
   .container
     h1 Register For Odd Jobs!
     p.lead Get quick, easy opportunities to make some cash by registering for Odd Jobs.
@@ -16,6 +10,8 @@ html
         input.form-control(type='text', name="username", placeholder='Enter Username')
       .form-group
         input.form-control(type='password', name="password", placeholder='Password')
+      .form-group
+        input.form-control(type='password', name="password2", placeholder='Re-enter password')
       .form-group
         input.form-control(type='text', name="first_name", placeholder='First Name')
       .form-group
@@ -29,7 +25,7 @@ html
       .form-group
         label
           input(type='checkbox' name='hireable')
-          | Looking for an odd job?
+          |  Looking for an odd job?
       button.btn.btn-default(type='submit') Submit
       &nbsp;
       a(href='/')
