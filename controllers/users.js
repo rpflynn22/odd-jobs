@@ -7,9 +7,14 @@ module.exports = {
   },
 
   post: function(req, res) {
+    console.log(req);
     if (req.body.password && req.body.password_copy) {
       if (req.body.password == req.body.password_copy) {
         /* Needs to be changed based on user model */
+        var hirable = false;
+        if (req.body.hirable && req.body.hirable === 'on') {
+          hirable = true;
+        }
 
         var newUser = new User({
           username: req.body.username,
@@ -20,7 +25,7 @@ module.exports = {
           email: req.body.email,
           tsRegister: Date.now(),
           tags: [],
-          hirable: true,
+          hirable: hirable,
           openJobs: [],
           closedJobs: [],
           numRatings: 0,

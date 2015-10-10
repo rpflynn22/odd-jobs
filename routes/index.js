@@ -6,12 +6,14 @@ var userController = require('../controllers/users');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log(req.user);
-  res.render('index', { title: 'Odd Jobs' });
+  data = {};
+  data.user = req.user;
+  res.render('index', data);
 });
 
 router.get('/login', function(req, res) {
   data = {};
+  data.user = req.user;
   if (req.query.err) {
     data.error = req.query.err;
   }

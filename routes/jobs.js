@@ -5,18 +5,24 @@ var jobController = require('../controllers/jobs');
 var Job = require('../models/job');
 
 router.get('/view', function(req, res) {
-  res.render('jobs');
+  data = {};
+  data.user = req.user;
+  res.render('jobs', data);
 });
 
 router.get('/', function(req, res) {
-  res.render('job-create');
+  data = {};
+  data.user = req.user;
+  res.render('job-create', data);
 });
 
 router.post('/', jobController.post);
 
 //TODO: Update this so that jobId is passed into the page.
 router.get('/:jobId', function(req, res) {
-  res.render('job-detail');
+  data = {};
+  data.user = req.user;
+  res.render('job-detail', data);
 });
 
 module.exports = router;
