@@ -23,6 +23,10 @@
             templateUrl: '/views/job-create.jade',
             controller: 'JobCreateCtrl'
           }).
+          when('/jobs/:jobId', {
+            templateUrl: '/views/job-detail.jade',
+            controller: 'JobDetailCtrl'
+          }).
           when('/register', {
             templateUrl: '/views/register.jade',
             controller: 'HomeCtrl'

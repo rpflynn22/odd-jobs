@@ -50,6 +50,45 @@ router.post('/register', function(req, res) {
   }
 });
 
+router.get('/jobs', function(req, res) {
+  res.render('jobs');
+});
+
+router.get('/jobs/create', function(req, res) {
+  res.render('job-create');
+});
+
+
+router.get('/jobs/:jobId', function(req, res) {
+  res.render('job-detail');
+})
+
+// TODO: Appropriately create a Job object.
+router.post('/jobs/create', function(req, res) {
+  if (newJobIsValid(req)) {
+    var newJob = new Job({
+      title: req.body.title,
+      // tags: req.body.tags,
+      creator: req.body.username, // Pass in username into the request.
+      description: req.body.description,
+      salary: req.body.salary,
+      location: req.body.location,
+      // postDate: Number,
+      // earliestDate: Number,
+      // latestDate: Number,
+      isOpen: true
+    });
+
+    newJob.save(function(err) {
+      if (err) throw err;
+        console.log("Saved job successfully!");
+      });
+  } else {
+    console.log("Necessary job fields did not exist!")
+    res.render('job-create');
+  }
+});
+
 
 /* Logs the user out, returns to the signin page */
 router.get('/logout', function(req, res){
@@ -59,5 +98,9 @@ router.get('/logout', function(req, res){
   res.redirect('/login');
   // req.session.notice = "You have successfully been logged out " + name + "!";
 });
+
+function newJobIsValid(req) {
+  return (req.body.title && req.body.description && req.body.salary && req.body.location);
+}
 
 module.exports = router;

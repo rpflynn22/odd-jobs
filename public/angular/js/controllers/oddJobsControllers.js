@@ -38,6 +38,18 @@
           });
     }]);
 
+    oddJobsControllers.controller('JobDetailCtrl', ['$scope', '$http', '$routeParams',
+      function($scope, $http, $routeParams) {
+        var jobUrl = '/jobs/' + $routeParams.jobId;
+        $http.get(jobUrl)
+          .success(function(data) {
+            $scope.job = data;
+          })
+          .error(function(data) {
+            console.log('error: ' + data);
+          });
+    }]);
+
     oddJobsControllers.controller('JobsCreateCtrl', ['$scope', '$http',
       function($scope, $http) {
         $scope.title = '';
