@@ -10,6 +10,12 @@ router.get('/view', function(req, res) {
   res.render('jobs', data);
 });
 
+router.get('/create', function(req, res) {
+  data = {};
+  data.user = req.user;
+  res.render('job-create', data);
+});
+
 router.get('/', function(req, res) {
   data = {};
   data.user = req.user;

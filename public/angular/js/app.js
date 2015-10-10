@@ -12,27 +12,27 @@
       function($routeProvider) {
         $routeProvider.
           when('/', {
-            templateUrl: '/views/index.jade',
+            templateUrl: 'views/index',
             controller: 'HomeCtrl'
           }).
           when('/jobs/view', {
-            templateUrl: '/views/jobs.jade',
+            templateUrl: 'views/jobs',
             controller: 'JobsCtrl'
           }).
           when('/jobs/', {
-            templateUrl: '/views/job-create.jade',
+            templateUrl: 'views/job-create',
             controller: 'JobCreateCtrl'
           }).
           when('/jobs/:jobId', {
-            templateUrl: '/views/job-detail.jade',
+            templateUrl: 'views/job-detail',
             controller: 'JobDetailCtrl'
           }).
           when('/register', {
-            templateUrl: '/views/register.jade',
+            templateUrl: 'views/register',
             controller: 'HomeCtrl'
           }).
           when('/login', {
-            templateUrl: '/views/login.jade',
+            templateUrl: 'views/login',
             controller: 'HomeCtrl'
           }).
           otherwise({
