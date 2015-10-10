@@ -8,11 +8,30 @@
    oddJobsControllers.controller('MainCtrl', ['$scope', '$http',
       function($scope, $http) {
         $scope.test = false;
+
+        // $http.get('/checklogin')
+        //   .success(function(data) {
+        //     $scope.loggedIn = data;
+        //   })
+        //   .error(function(data) {
+        //     console.log('error: ' + data);
+        //   });
   }]);
+
+   oddJobsControllers.controller('LoginCtrl', ['$scope', '$http',
+      function($scope, $http) {
+        $http.get('/login')
+          .success(function(data) {
+            $scope.loggedIn = data.user;
+          })
+          .error(function(data) {
+            console.log('error: ' + data);
+          });
+   }]);
 
    oddJobsControllers.controller('HomeCtrl', ['$scope', '$http',
       function($scope, $http) {
-         $scope.authors = ['Ryan Flynn', 'Alex McKinney', 'Steffan Voges'];
+        $scope.authors = ['Ryan Flynn', 'Alex McKinney', 'Steffan Voges'];
    }]);
 
    oddJobsControllers.controller('JobsCtrl', ['$scope', '$http',

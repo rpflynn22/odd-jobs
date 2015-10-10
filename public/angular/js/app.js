@@ -33,7 +33,7 @@
           }).
           when('/login', {
             templateUrl: '/views/login.jade',
-            controller: 'HomeCtrl'
+            controller: 'LoginCtrl'
           }).
           otherwise({
             redirectTo: '/'
