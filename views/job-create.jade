@@ -15,10 +15,11 @@ block content
         .form-group
           input.form-control(type='number', name="location", placeholder='Zip Code')
         .form-group
-          input.form-control.datepicker(type='text', name="minDate", placeholder='Earliest Date')
+          input.form-control.datepicker(type='text', name="minDate", placeholder='Earliest Date', id="minDate")
         .form-group
-          input.form-control.datepicker(type='text', name="maxDate", placeholder='Latest Date')
+          input.form-control.datepicker(type='text', name="maxDate", placeholder='Latest Date', id="maxDate")
         button.btn.btn-success(type='submit') Create
         &nbsp;
         a(href='/')
           button.btn.btn-danger(type="button") Cancel
+
