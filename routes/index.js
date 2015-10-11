@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var general = require('../general');
 
 var userController = require('../controllers/users');
 
@@ -9,6 +10,7 @@ router.get('/', function(req, res, next) {
   data = {};
   data.user = req.user;
   console.log(data);
+  general.getZipCoords(94568);
   res.render('index', data);
 });
 

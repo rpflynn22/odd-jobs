@@ -2,6 +2,7 @@ extends layout
 
 block content
   .container
+    script(src='/javascripts/getLoc.js')
     h1 Register For Odd Jobs!
     p.lead Get quick, easy opportunities to make some cash by registering for Odd Jobs.
     if error
@@ -19,11 +20,15 @@ block content
       .form-group
         input.form-control(type='text', name="last_name", placeholder='Last Name')
       .form-group
-        input.form-control(type='number', name="location", placeholder='Zip Code')
-      .form-group
         input.form-control(type='text', name="description", placeholder='Description')
       .form-group
         input.form-control(type='email', name="email", placeholder='Email')
+      .form-group
+        input.form-control(type='number', name="distanceToTravel", placeholder='Distance Willing to Travel (mi.)')
+      .form-group
+        input.form-control#lat(type='hidden', name='lat', value='')
+      .form-group
+        input.form-control#long(type='hidden', name='long', value='')
       .form-group
         label
           input(type='checkbox' name='hireable')
