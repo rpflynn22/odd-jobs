@@ -10,6 +10,7 @@
         $http.get('/checklogin')
           .success(function(data) {
             $scope.loggedIn = data;
+            $scope.id = data._id;
           })
           .error(function(data) {
             console.log('error: ' + data);

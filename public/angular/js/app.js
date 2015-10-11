@@ -15,11 +15,15 @@
             templateUrl: 'views/index',
             controller: 'HomeCtrl'
           }).
+          when('/users/edit', {
+            templateUrl: 'views/user-edit',
+            controller: 'MainCtrl'
+          }).
           when('/jobs/view', {
             templateUrl: 'views/jobs',
             controller: 'JobsCtrl'
           }).
-          when('/jobs/', {
+          when('/jobs', {
             templateUrl: 'views/job-create',
             controller: 'JobCreateCtrl'
           }).

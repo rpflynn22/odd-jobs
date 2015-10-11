@@ -17,11 +17,16 @@ router.get('/new', function(req, res) {
   res.render('register', data);
 });
 
-router.get('/edit', function(req, res) {
-  res.render('user-edit');
+router.get('/edit/:id', function(req, res) {
+  if (req.user) {
+    data = {user: req.user};
+  } else {
+    data = {};
+  }
+  res.render('user-edit', data);
 });
 
-router.put('/', userController.put);
+router.post('/:id', userController.put);
 router.post('/', userController.post);
 
 module.exports = router;
