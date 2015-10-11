@@ -17,7 +17,7 @@ router.get('/new', function(req, res) {
   res.render('register', data);
 });
 
-router.get('/edit', function(req, res) {
+router.get('/edit/:id', function(req, res) {
   if (req.user) {
     data = {user: req.user};
   } else {
