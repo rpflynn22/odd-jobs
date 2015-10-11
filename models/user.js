@@ -31,6 +31,10 @@ var userSchema = new Schema({
     required: true,
     validate: [general.validateLocation, 'Must be 5 digit zip']
   },
+  distanceToTravel: {
+    type: Number,
+    required: true
+  },
   tsRegister: {
     type: Number,
     required: true

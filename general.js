@@ -13,10 +13,14 @@ module.exports = {
     },
 
     validateJobTags: function(tags) {
-        tags.length >= 1;
+        return tags.length >= 1;
     },
 
     validateLocation: function(zipCode) {
-        zipCode.toString().length == 5;
+        return zipCode.toString().length == 5;
+    },
+
+    validateDistance: function(distance) {
+        return distance > 0;
     }
 };
