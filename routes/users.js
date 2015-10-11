@@ -26,11 +26,7 @@ router.get('/edit', function(req, res) {
   res.render('user-edit', data);
 });
 
-router.put('/update', function(req, res) {
-  console.log("fuck this");
-  userController.post;
-});
-
+router.put('/', userController.put);
 router.post('/', userController.post);
 
 module.exports = router;
