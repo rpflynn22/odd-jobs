@@ -1,6 +1,10 @@
 var Job = require('../models/job.js');
 
 module.exports = {
+  get: function(req, res) {
+    // TODO: Get function
+  },
+
   post: function(req, res) {
     if (newJobIsValid(req)) {
       var newJob = new Job({
