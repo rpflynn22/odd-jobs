@@ -3,7 +3,6 @@ var passport = require('passport');
 
 module.exports = {
   put: function(req, res) {
-    console.log("********************");
     var updateData = {
       username: req.body.username,
       first_name: req.body.first_name,
@@ -13,7 +12,12 @@ module.exports = {
       email: req.body.email
     }
     User.update({_id: req.user._id}, updateData, function(err, affected) {
+      if (err) {
+        throw err;
+      } else {
         console.log('affected rows %d', affected);
+        res.redirect('/');
+      }
     });
   },
 
