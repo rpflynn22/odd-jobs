@@ -18,10 +18,19 @@ router.get('/new', function(req, res) {
 });
 
 router.get('/edit', function(req, res) {
-  res.render('user-edit');
+  if (req.user) {
+    data = {user: req.user};
+  } else {
+    data = {};
+  }
+  res.render('user-edit', data);
 });
 
-router.put('/', userController.put);
+router.put('/update', function(req, res) {
+  console.log("fuck this");
+  userController.post;
+});
+
 router.post('/', userController.post);
 
 module.exports = router;
