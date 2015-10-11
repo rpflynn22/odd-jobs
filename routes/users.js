@@ -26,7 +26,7 @@ router.get('/edit', function(req, res) {
   res.render('user-edit', data);
 });
 
-router.put('/', userController.put);
+router.put('/:id', userController.put);
 router.post('/', userController.post);
 
 module.exports = router;
