@@ -23,7 +23,7 @@
 
    oddJobsControllers.controller('JobsCtrl', ['$scope', '$http',
       function($scope, $http) {
-        $http.get('/jobs/view')
+        $http.get('/jobs')
           .success(function(data) {
             $scope.jobs = data;
           })

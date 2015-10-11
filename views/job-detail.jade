@@ -5,3 +5,8 @@ block content
   .container
     h1 {{job.title}}
     br
+
+    form(ng-hide='{{user}} && {{job.creator}} == {{user}} && {{job.isOpen}}',
+          action='/jobs/delete', method='post')
+      input(type='hidden', name='id', value='{{job._id}}')
+      button.btn.btn-danger(type='submit') Delete Job

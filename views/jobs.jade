@@ -20,23 +20,23 @@ block content
         tr(ng-repeat="job in jobs")
           td
             .text-center
-              a(href="/jobs/" + job._id)
+              a(href="/jobs/" + {{job._id}})
                 button(class="btn btn-info") View
           td
             .text-center
-              = job.title
+              = {{job.title}}
           td
             .text-center
-              = job.employer.username
+              = {{job.creator}}
           td
             .text-center
-              = job.location
+              = {{job.location}}
           td
             .text-center
-              = job.salary
+              = {{job.salary}}
           td
             .text-center
-              = job.date.toLocaleString().split(' ').slice(1, 5).join(' ')
+              = {{job.date.toLocaleString().split(' ').slice(1, 5).join(' ')}}
           td
             .text-center
-              = job.status
+              = {{job.status}}
