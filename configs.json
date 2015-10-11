@@ -1,11 +1,16 @@
 {
-    "storage":
+  "storage":
+  {
+    "mongolab":
     {
-        "mongolab":
-        {
-            "username": "odd-jobs-dev",
-            "password": "changeme"
-        }
+      "username": "odd-jobs-dev",
+      "password": "changeme"
     }
+  },
+
+  "zipCodeDistance":
+  {
+    "apiKey": "KU6V9SAp6qVgBdUv5DCnjQXSdwgiSMhCGnyQg8fnzbDaoxFubiRu9OnmlDEdqWQ7"
+  }
 }
 

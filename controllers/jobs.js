@@ -7,21 +7,23 @@ module.exports = {
 
   post: function(req, res) {
     if (newJobIsValid(req)) {
+      console.log(req.body.lat);
+      console.log(req.body.long);
       var newJob = new Job({
         title: req.body.title,
-        //tags: req.body.tags,
-        creator: req.body.username,
+        tags: req.body.tags.split(',').map(function(str) { return str.trim(); }),
+        creator: req.user._id,
         description: req.body.description,
         salary: req.body.salary,
-        location: req.body.location,
-        // postDate: Number,
-        // earliestDate: Number,
-        // latestDate: Number,
+        loc: [req.body.long, req.body.lat],
+        postDate: Date.now(),
+        earliestDate: Date.parse(req.body.minDate),
+        latestDate: Date.parse(req.body.maxDate),
         isOpen: true
       });
 
       newJob.save(function(err) {
-        if (err) throw err;
+        if (err) return console.error(err);
         console.log("Created Job successfully!");
         res.redirect('view');
       });
@@ -33,5 +35,5 @@ module.exports = {
 }
 
 function newJobIsValid(req) {
-  return (req.body.title && req.body.description && req.body.salary && req.body.location);
+  return (req.body.title && req.body.description && req.body.salary);
 }

@@ -26,10 +26,10 @@ var userSchema = new Schema({
   password: {
     type: String,
   },
-  location: {
-    type: Number,
-    required: true,
-    validate: [general.validateLocation, 'Must be 5 digit zip']
+  loc: {
+    type: [Number],
+    index: '2d',
+    required: true
   },
   distanceToTravel: {
     type: Number,

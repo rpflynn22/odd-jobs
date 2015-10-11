@@ -6,7 +6,7 @@ var general = require('../general');
 var jobSchema = new Schema({
   title: {
     type: String,
-    validate: /[\w\s]{8,}/
+    validate: /[\w\s]{4,}/
   },
   tags: {
     type: [String],
@@ -19,16 +19,16 @@ var jobSchema = new Schema({
   },
   description: {
     type: String,
-    validate: /[\w\s]{20,}/
+    validate: /[\w\s]{10,}/
   },
   salary: {
     type: Number,
     required: true
   },
-  location: {
-    type: Number,
-    required: true,
-    validate: [general.validateLocation, 'Must be 5 digit zip']
+  loc: {
+    type: [Number],
+    index: '2d',
+    required: true
   },
   postDate: {
     type: Number,

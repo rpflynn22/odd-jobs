@@ -22,5 +22,9 @@ module.exports = {
 
     validateDistance: function(distance) {
         return distance > 0;
+    },
+
+    getDistanceBetweenZips: function(zip1, zip2) {
+        
     }
 };

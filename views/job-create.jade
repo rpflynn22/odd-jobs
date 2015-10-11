@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  script(src='/javascripts/getLoc.js')
   .container
     h1 Create a Job
     div(ng-controller="JobCreateCtrl")
@@ -11,9 +12,13 @@ block content
         .form-group
           textarea.form-control(rows="3", name="description", placeholder='Job Description')
         .form-group
+          input.form-control(type='text', name="tags", placeholder='Comma-Separated Tags', data-role='tagsinput', value="")
+        .form-group
           input.form-control(type='number', name="salary", placeholder='Employee Compensation')
         .form-group
-          input.form-control(type='number', name="location", placeholder='Zip Code')
+          input.form-control#lat(type='hidden', name='lat', value='')
+        .form-group
+          input.form-control#long(type='hidden', name='long', value='')
         .form-group
           input.form-control.datepicker(type='text', name="minDate", placeholder='Earliest Date', id="minDate")
         .form-group
