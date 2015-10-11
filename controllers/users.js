@@ -3,11 +3,25 @@ var passport = require('passport');
 
 module.exports = {
   put: function(req, res) {
-    // TODO: Update User Info in Database
+    var updateData = {
+      username: req.body.username,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      location: req.body.location,
+      description: req.body.description,
+      email: req.body.email
+    }
+    User.update({_id: req.user._id}, updateData, function(err, affected) {
+      if (err) {
+        throw err;
+      } else {
+        console.log('affected rows %d', affected);
+        res.redirect('/');
+      }
+    });
   },
 
   post: function(req, res) {
-    console.log(req);
     if (req.body.password && req.body.password_copy) {
       if (req.body.password == req.body.password_copy) {
         /* Needs to be changed based on user model */
