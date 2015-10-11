@@ -33,7 +33,7 @@ var userSchema = new Schema({
   },
   distanceToTravel: {
     type: Number,
-    required: true
+    required: true,
     validate: [general.distanceToTravel, 'Must be greater than 0.']
   },
   tsRegister: {
